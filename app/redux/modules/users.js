@@ -1,4 +1,5 @@
-import auth from 'helpers/auth'
+import  auth  from 'helpers/auth'
+import logout from 'helpers/auth'
 const AUTH_USER = 'AUTH_USER'
 const UNAUTH_USER = 'UNAUTH_USER'
 const FETCHING_USER = 'FETCHING_USER'
@@ -49,6 +50,14 @@ export function fetchAndhandleAuthedUser () {
   }
 }
 
+export function LogoutAndUnauth(){
+  return function(dispatch){
+    logout()
+    dispatch(unauthUser())
+    
+
+  }
+}
 
 // Users
 const initialUserState = {

@@ -1,7 +1,8 @@
 
 import React from 'react'
 import { BrowserRouter, Route, Switch, HashRouter} from 'react-router-dom'
-import { MainContainer, HomeContainer, AuthenticateContainer, FeedContainer } from '../containers'
+import { MainContainer, HomeContainer, AuthenticateContainer,
+         FeedContainer, LogoutContainer } from '../containers'
 
 const ReactRouter = require('react-router-dom');
 // const Router = ReactRouter.BrowserRouter;
@@ -13,9 +14,10 @@ export default function getRoutes(checkAuth) {
     <BrowserRouter> 
       <MainContainer>
         <Switch>
-          <Route exact path='/' component={HomeContainer} onEnter={checkAuth} /> 
-          <Route path='/auth' component={AuthenticateContainer} onEnter={checkAuth} />
-          <Route path='/feed' component={FeedContainer} onEnter={console.log('gg')} />
+          <Route exact path='/' component={checkAuth(HomeContainer)}  /> 
+          <Route path='/login' component={checkAuth(AuthenticateContainer)} />
+          <Route path='/feed' component={checkAuth(FeedContainer)} />
+          <Route path='/logout' component={LogoutContainer}  />
         </Switch>
       </MainContainer>
     </BrowserRouter>

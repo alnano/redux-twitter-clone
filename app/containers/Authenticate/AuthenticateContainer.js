@@ -19,7 +19,7 @@ class AuthenticateContainer extends Component {
     console.log('this.props', this.props)
     this.props.fetchAndhandleAuthedUser()
       .then(() => this.props.history.push("/feed"))
-      // .then(()=> this.context.router.history.repalce('feed'))
+    // .then(()=> this.context.router.history.repalce('feed'))
     //   this.props.fetchingUser()
     // auth().then((user) =>{
     //   this.props.fetchingUserSuccess(user.uid, user, Date.now())
