@@ -1,16 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import  { text }  from './styles.css'
 
 const Logout = props => {
   return (
-    <div>
-      <h1>{"Logout"}</h1>
-    </div>
+    <div className={text}>{"you are now logged out"}</div>
   );
 };
 
-// Logout.propTypes = {
-  
-// };
+
 
 export default Logout;
