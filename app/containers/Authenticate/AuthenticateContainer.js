@@ -47,11 +47,11 @@ AuthenticateContainer.propTypes = {
   error: PropTypes.string.isRequired,
 };
 
-function mapStateToProps (state){
-  console.log('state',state)
+function mapStateToProps ({users}){
+  //console.log('state',state)
   return{
-    isFetching: state.isFetching,
-    error: state.error
+    isFetching: users.isFetching,
+    error: users.error
   }
 }
 
