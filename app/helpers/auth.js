@@ -1,6 +1,6 @@
 import firebase from 'firebase'
-import ref from 'config/constants'
-import { firebaseAuth } from 'config/constants'
+// import { ref } from 'config/constants'
+import { ref, firebaseAuth } from 'config/constants'
 
 
 export default function auth () {
@@ -27,14 +27,10 @@ export function logout(){
   return firebaseAuth().signOut()
 }
 export function saveUser(user) {
-return ref.child(`users/${user.uid}`)
-  .set(user)
-  .then(() => user)
-  console.log('here')
+  // return ref.child(`users/${user.uid}`)
+  //   .set(user)
+  //   .then(() => user)
+    console.log('here', user)
+    
 } 
 
-// export function saveUser(user) {
-//   return ref.child(`users/${user.uid}`)
-//     .set(user)
-//     .then(()=> user)
-// }

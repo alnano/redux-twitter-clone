@@ -23,8 +23,9 @@ const Modal = (props) => {
     // console.log('duck', props.duckText)
     // console.log('user', props.user)
     console.log('wtfffff', props)
-    const use = {...props.user, name:'tom', avatar: 'dick',}
-    props.duckFanout(formatDuck(props.duckText, use))
+    const avi  = props.user.avatar ? props.user.avatar : 'undef'
+    const user = {...props.user, name: props.user.name, avatar: avi,}
+    props.duckFanout(formatDuck(props.duckText, user))
   }
 
   return (

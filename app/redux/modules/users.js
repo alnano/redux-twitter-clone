@@ -45,12 +45,13 @@ export function fetchAndhandleAuthedUser () {
     dispatch(fetchingUser())
     return auth().then(({user, credential}) =>{
       const userData = user.providerData[0]
+     // var photo  = 
       const userInfo = formatUserInfo(userData.displayname, userData.photoUrl, user.uid)
       return dispatch(fetchingUserSuccess(user.uid, userInfo, Date.now()))
       
     })
+      //.then(({ user }) => saveUser(user)) // maybe no need to deconstruct 
       .then((user) => dispatch(authUser(user.uid)))
-      .then(({ user }) => console.log('user', user))
       .catch((error) => dispatch(fetchingUserFailure(error)))
   }
 }
@@ -76,7 +77,7 @@ const initialUserState = {
   info: {
     name: '',
     uid: '',
-    avatar: '',
+    avatar: 's',
   },
 }
 

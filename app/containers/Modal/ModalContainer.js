@@ -22,6 +22,7 @@ import * as ducksActionCreators from 'redux/modules/ducks'
 
 function mapStateToProps ({modal, users}) {
   const duckTextLength = modal.duckText.length
+  
   return {
     user: users[users.authedId] ? users[users.authedId].info : {},
     duckText: modal.duckText,
