@@ -5,20 +5,24 @@ import { connect } from 'react-redux'
 import { Duck } from 'components'
 import * as usersLikesActions from 'redux/modules/usersLikes'
 
+
 class DuckContainer extends Component {
   constructor(props){
     super(props)
     this.handleClick = this.handleClick.bind(this)
+    this.goToProfile = this.goToProfile.bind(this)
   }
   goToProfile (e) {
     e.stopPropagation()
-    this.context.router.push('/' + this.props.duck.uid)
+    this.context.router.history.push('/' + this.props.duck.uid)
+    //this.context.router.history.replace('feed')
   }
   handleClick (e) {
     e.stopPropagation()
-    this.context.router.push('/duckDetail' + this.props.duck.duckId)
+    this.context.router.history.push('/duckDetail' + this.props.duck.duckId)
   }
   render() {
+    console.log(this)
     return (
       <div>
         <Duck 
