@@ -2,7 +2,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, HashRouter} from 'react-router-dom'
 import { MainContainer, HomeContainer, AuthenticateContainer,
-         FeedContainer, LogoutContainer, UserContainer } from '../containers'
+  FeedContainer, LogoutContainer, UserContainer, DuckDetailsContainer} from '../containers'
 
 const ReactRouter = require('react-router-dom');
 // const Router = ReactRouter.BrowserRouter;
@@ -18,7 +18,10 @@ export default function getRoutes(checkAuth) {
           <Route path='/login' component={checkAuth(AuthenticateContainer)} />
           <Route path='/feed' component={checkAuth(FeedContainer)} />
           <Route path='/logout' component={LogoutContainer}  />
+          <Route path='/duckDetail' component={DuckDetailsContainer} />
           <Route path='/:uid' component={UserContainer} />
+          
+          {/* <Route path='/duck' component={DuckDetailsContainer} /> */}
         </Switch>
       </MainContainer>
     </BrowserRouter>

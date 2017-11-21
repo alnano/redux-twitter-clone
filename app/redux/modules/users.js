@@ -41,7 +41,7 @@ export function fetchingUserSuccess(uid, user, timestamp){
   }
 }
 
-export function fetchAndHandleUser () {
+export function fetchAndHandleUser (uid) {
   return function (dispatch) {
     dispatch(fetchingUser())
     return fetchUser(uid)

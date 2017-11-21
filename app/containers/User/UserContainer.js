@@ -11,8 +11,9 @@ class UserContainer extends Component {
   constructor(props){
     super(props)
 
-  }
+  } 
   componentDidMount () {
+    console.log(this.props,'gggg')
     const uid = this.props.match.params.uid
     if (this.props.noUser === true || staleUsers(this.props.lastUpdatedUser)) {
       this.props.fetchAndHandleUser(uid)
@@ -44,7 +45,7 @@ UserContainer.propTypes = {
 };
 
 function mapStateToProps ({users, usersDucks}, props) {
-  console.log(usersDucks)
+  //console.log(usersDucks)
   console.log('props', props)
   console.log(users, 'users')
   const specificUsersDucks = usersDucks[props.match.params.uid]

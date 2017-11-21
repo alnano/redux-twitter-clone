@@ -41,7 +41,7 @@ const Duck = props => {
         <img src={props.duck.avatar} className={avatar} />
         <div className={contentContainer}>
           <div className={header}>
-            <div onClick={props.goToProfile} className={author}>{props.duck.name}</div>
+            <div onClick={props.goToProfile} className={author}>{props.duck.name+'55'}</div>
             <div>{formatTimestapmp(props.duck.timestamp)}</div>
           </div>
           <div className={text}>{props.duck.text}</div>
@@ -56,8 +56,8 @@ const Duck = props => {
             </div>
           </div>
     </div>
-  );
-};
+  )
+}
 
 Duck.propTypes = {
   

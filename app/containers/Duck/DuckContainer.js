@@ -16,20 +16,21 @@ class DuckContainer extends Component {
     e.stopPropagation()
     this.context.router.history.push('/' + this.props.duck.uid)
     //this.context.router.history.replace('feed')
-  }
+  } 
   handleClick (e) {
     e.stopPropagation()
-    this.context.router.history.push('/duckDetail' + this.props.duck.duckId)
+    this.context.router.history.push('/duckDetail')
+    // this.context.router.history.push('/duckDetail' + this.props.duck.duckId)
   }
   render() {
     console.log(this)
     return (
-      <div>
+      
         <Duck 
         goToProfile={this.goToProfile}
-        onClick={this.props.hideReplybtn === true ? null : this.handleClick}
+        onClick={this.handleClick}
         {...this.props} />
-      </div>
+     
     );
   }
 }
