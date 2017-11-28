@@ -17,10 +17,9 @@ export default function getRoutes(checkAuth) {
           <Route exact path='/' component={checkAuth(HomeContainer)}  /> 
           <Route path='/login' component={checkAuth(AuthenticateContainer)} />
           <Route path='/feed' component={checkAuth(FeedContainer)} />
-          <Route path='/logout' component={LogoutContainer}  />
-          <Route path='/duckDetail' component={DuckDetailsContainer} />
+          <Route path='/duckDetail/:duckId' component={checkAuth(DuckDetailsContainer)} />
           <Route path='/:uid' component={UserContainer} />
-          
+          <Route path='/logout' component={LogoutContainer} />
           {/* <Route path='/duck' component={DuckDetailsContainer} /> */}
         </Switch>
       </MainContainer>

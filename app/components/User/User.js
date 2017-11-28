@@ -12,6 +12,7 @@ const User = props => {
         {props.isFetching === true
           ? <p className={header}>Loading</p>
           : <div>
+            {console.log('>>>>>>>>>', props)}
             <div className={userContainer}>
               <div>{props.name}</div>
             </div>

@@ -13,7 +13,6 @@ class UserContainer extends Component {
 
   } 
   componentDidMount () {
-    console.log(this.props,'gggg')
     const uid = this.props.match.params.uid
     if (this.props.noUser === true || staleUsers(this.props.lastUpdatedUser)) {
       this.props.fetchAndHandleUser(uid)
@@ -25,12 +24,15 @@ class UserContainer extends Component {
   } 
   render() {
     return (
+      <div>
+        <h1> tee </h1>
        <User 
         noUser={this.props.noUser}
         name={this.props.name}
         isFetching={this.props.isFetching}
         error={this.props.error}
         duckIds={this.props.duckIds}/>
+      </div>
     );
   }
 }

@@ -19,7 +19,8 @@ class DuckContainer extends Component {
   } 
   handleClick (e) {
     e.stopPropagation()
-    this.context.router.history.push('/duckDetail')
+    // this.context.router.history.push('/duckDetail/:duckId')
+    this.context.router.history.push(`/duckDetail/${this.props.duck.duckId}`)
     // this.context.router.history.push('/duckDetail' + this.props.duck.duckId)
   }
   render() {

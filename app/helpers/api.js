@@ -42,7 +42,7 @@ export function listenToFeed(cb, errorCB) {
   }, errorCB)
 }
 
-//utilize call back instead of a promise because .on = socket */
+//utilize call back instead of a promise because .on = socket */ ^^^ listeToFeed
 
 export function fetchUsersLikes (uid) {
   return ref.child(`usersLikes/${uid}`).once('value')
@@ -74,5 +74,31 @@ export function fetchUser (uid) {
 
 export function fetchUserDucks (uid) {
   return ref.child(`usersDucks/${uid}`).once('value')
+    .then((snapshot) => snapshot.val() || {})
+}
+
+export function fetchDuck (duckId) {
+  return ref.child(`ducks/${duckId}`).once(value)
+    .then((snapshot) => snapshot.val())
+}
+
+export function fetchLikeCount (duckId) {
+  return ref.child(`likeCount/${duckId}`).once('value')
+    .then((snapshot) => snapshot.val() || 0)
+}
+
+export function postReply (duckId, reply ) {
+  const replyId = ref.child(`replies/${duckId}`).push().key
+  const replyWithId = {...reply, replyId}
+  const replyPromise = ref.child(`replies/${duckId}/${replyId}`).set(replyWithId)
+
+  return {
+    replyWithId,
+    replyPromise,
+  }
+}
+
+export function fetchReplies (duckId) {
+  return ref.child(`replies/${duckId}`).once('value')
     .then((snapshot) => snapshot.val() || {})
 }
